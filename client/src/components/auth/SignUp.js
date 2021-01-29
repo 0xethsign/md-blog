@@ -9,18 +9,11 @@ const SignUp = ({ loading, user, onBlur, onChange, onSubmit }) => {
    return (
       <Container>
          <Row>
-            <Col className="mx-auto" sm={11} md={7} lg={5}>
-               <Card className="my-4">
-                  <Form
-                     noValidate
-                     onSubmit={onSubmit}
-                     className="p-sm-3 p-xs-1"
-                  >
+            <Col>
+               <Card >
+                  <Form noValidate onSubmit={onSubmit}>
                      <Card.Body>
-                        <Card.Title
-                           as="h3"
-                           className="text-center mb-4 mt-2 theme-color"
-                        >
+                        <Card.Title>
                            SignUp
                         </Card.Title>
                         <Input
@@ -65,12 +58,11 @@ const SignUp = ({ loading, user, onBlur, onChange, onSubmit }) => {
                         <Button
                            variant="info"
                            type="submit"
-                           className="mt-4"
                            disabled={loading}
                         >
                            Submit
                         </Button>
-                        <Card.Text className="mt-2">
+                        <Card.Text >
                            Already have an account?{" "}
                            <Link to={"/login"}>Login</Link>.
                         </Card.Text>

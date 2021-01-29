@@ -1,5 +1,5 @@
-import React from "react";
-import ProgressBar from "react-bootstrap/ProgressBar";
+import React from "react"
+import ProgressBar from "react-bootstrap/ProgressBar"
 
 const Progress = () => {
    return (
@@ -11,7 +11,7 @@ const Progress = () => {
             variant="info"
          />
       </div>
-   );
-};
+   )
+}
 
-export default Progress;
+export default Progress

@@ -1,16 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
-import Input from "../form/Input";
-import Textarea from "../form/Textarea";
+import React from "react"
+import PropTypes from "prop-types"
+import { Form, Button, Container, Row, Col } from "react-bootstrap"
+import Input from "../form/Input"
+import Textarea from "../form/Textarea"
 
 const PostForm = ({ post, onChange, onBlur, loading, onSubmit }) => {
-   const { title, body, errors } = post;
+   const { title, body, errors } = post
+   console.log(post)
    return (
       <Container>
          <Row>
-            <Col className="mx-auto">
-               <Form noValidate onSubmit={onSubmit} className="p-sm-3 p-xs-1">
+            <Col>
+               <Form noValidate onSubmit={onSubmit}>
+                  <br></br>
                   <Input
                      name="title"
                      type="text"
@@ -22,11 +24,16 @@ const PostForm = ({ post, onChange, onBlur, loading, onSubmit }) => {
                         module: "post",
                         label: "Title",
                         error: errors.title
-                     }}
-                  />
+                     }} />
+                  <br></br>
+                  <Form.Group>
+                     <Form.File id="exampleFormControlFile1" label="Upload header Image" />
+                  </Form.Group>
+                  <br></br>
+
                   <Textarea
                      name="body"
-                     placeholder="Write your post here..."
+                     placeholder="Write your markdown here..."
                      value={body}
                      onChange={onChange}
                      onBlur={onBlur}
@@ -34,16 +41,15 @@ const PostForm = ({ post, onChange, onBlur, loading, onSubmit }) => {
                         module: "post",
                         label: "Description",
                         error: errors.body
-                     }}
-                  />
+                     }} />
+                  <br></br>
                   <Button
                      variant="outline-info"
                      type="submit"
-                     disabled={loading}
-                     className="mt-3"
-                  >
+                     disabled={loading}>
                      Submit
                   </Button>
+
                </Form>
             </Col>
          </Row>
@@ -57,6 +63,6 @@ PostForm.propTypes = {
    onBlur: PropTypes.func.isRequired,
    onChange: PropTypes.func.isRequired,
    onSubmit: PropTypes.func.isRequired
-};
+}
 
-export default PostForm;
+export default PostForm

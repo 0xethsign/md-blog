@@ -2,40 +2,46 @@ import React from "react"
 import PropTypes from "prop-types"
 import getFormattedDate from "../../utils/getFormattedDate"
 import { Container, Row, Col, Button } from "react-bootstrap"
+import ReactMarkdown from 'react-markdown'
 
 
 const ViewPost = ({ post, auth, onDelete, onEdit }) => {
-   const postDate = getFormattedDate(post.date);
+   const postDate = getFormattedDate(post.createdAt)
+   console.log(post)
    return (
-      <Container className="mt-4 viewPost">
+      <Container>
+         <hr></hr>
          <Row>
-            <Col className="text-center postTitle">
+            <Col>
                <h2>{post.title}</h2>
             </Col>
          </Row>
-         <Row className="my-4" style={{ whiteSpace: "pre-wrap" }}>
-            <Col>{post.body}</Col>
+         <Row style={{ whiteSpace: "pre-wrap" }}>
+            <Col>
+               <ReactMarkdown>
+                  {post.markdown}
+               </ReactMarkdown>
+            </Col>
          </Row>
-         <Row className="d-flex flex-column font-italic footerStyle">
+         <Row>
             <Col>Created by : {post.author}</Col>
+            <br></br>
             <Col>Date: {postDate}</Col>
          </Row>
+         <br></br>
          {auth && (
-            <Row className="mt-4">
-               <Col className="text-center">
-                  <Button
-                     className="mr-2"
-                     variant="outline-info"
-                     onClick={onEdit}
-                  >
+            <Row>
+               <Col>
+                  <Button onClick={onEdit}>
                      Edit
                   </Button>
-                  <Button variant="outline-danger" onClick={onDelete}>
+                  <Button onClick={onDelete}>
                      Delete
                   </Button>
                </Col>
             </Row>
          )}
+         <hr></hr>
       </Container>
    );
 };

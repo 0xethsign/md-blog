@@ -5,15 +5,17 @@ import getFormattedDate from "../../utils/getFormattedDate"
 
 
 const Post = ({ post }) => {
-   const postDate = getFormattedDate(post.date);
+   const postDate = getFormattedDate(post.createdAt)
    return (
       <Card className="deckStyle" style={{ border: "none" }}>
-         <Card.Body className="postCover">
-            <Card.Title className="text-center p-5">{post.title}</Card.Title>
+         <hr></hr>
+         <Card.Body >
+            <Card.Title>{post.title}</Card.Title>
          </Card.Body>
          <Card.Footer>
-            <small className="text-muted">Posted on: {postDate}</small>
+            <small className="text-muted">{postDate}</small>
          </Card.Footer>
+         <hr></hr>
       </Card>
    )
 }

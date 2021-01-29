@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import './Nav.css'
+import './Nav.module.css'
 const Navigationbar = ({ auth, onClick }) => (
    <Navbar>
 
       <ul>
          <li><a href="/">Home</a></li>
+         <li><a href="/blog">Blogs</a></li>
          <Nav className="ml-auto">
             {auth ? (
                <li><Link to="/logout">

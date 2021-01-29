@@ -23,12 +23,12 @@ const Blog = ({ posts, auth }) => {
 
    return (
       <React.Fragment>
-         <div className="mx-3">
-            <Nav className="justify-content-between mt-2 mb-2">
+         <div>
+            <Nav>
                {auth && (
                   <Link to="/blog/post/create">
-                     <Button variant="light" className="styleBtn">
-                        +
+                     <Button style={{ margin: "20px" }}>
+                        Add new Blog
                      </Button>
                   </Link>
                )}
@@ -53,12 +53,9 @@ const Blog = ({ posts, auth }) => {
             />
          ) : (
                display && (
-                  <Container
-                     style={{ height: "50vh" }}
-                     className="d-flex flex-column justify-content-center align-items-center"
-                  >
+                  <Container>
                      {" "}
-                     <p className="text-secondary h3">No Post Found !</p>
+                     <p>No Post Found !</p>
                   </Container>
                )
             )}
