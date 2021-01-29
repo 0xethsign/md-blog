@@ -5,8 +5,7 @@ import Input from "../form/Input"
 import Textarea from "../form/Textarea"
 
 const PostForm = ({ post, onChange, onBlur, loading, onSubmit }) => {
-   const { title, body, errors } = post
-   console.log(post)
+   const { title, body, headerImage, errors } = post
    return (
       <Container>
          <Row>
@@ -27,7 +26,14 @@ const PostForm = ({ post, onChange, onBlur, loading, onSubmit }) => {
                      }} />
                   <br></br>
                   <Form.Group>
-                     <Form.File id="exampleFormControlFile1" label="Upload header Image" />
+                     <Form.File
+                        name="headerImage"
+                        type="image"
+                        value={headerImage}
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        id="exampleFormControlFile1"
+                        label="Upload header image" />
                   </Form.Group>
                   <br></br>
 
